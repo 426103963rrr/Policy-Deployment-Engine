@@ -1,0 +1,3 @@
+terraform providers schema -json > schema.json
+
+jq -r '.provider_schemas["registry.terraform.io/hashicorp/google"].resource_schemas | keys[]' schema.json > services.txt
