@@ -1,0 +1,5 @@
+{
+  "cloud": "GCP",
+  "service": "Compute Engine",
+  "resource": "google_compute_address"
+}
