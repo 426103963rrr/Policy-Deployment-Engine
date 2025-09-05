@@ -1,0 +1,67 @@
+{
+  "format_version": "1.2",
+  "terraform_version": "1.11.4",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "google_scc_source_iam_binding.c",
+          "mode": "managed",
+          "type": "google_scc_source_iam_binding",
+          "name": "c",
+          "provider_name": "registry.terraform.io/hashicorp/google",
+          "schema_version": 0,
+          "values": {
+            "organization": "1234",
+            "source": "5678",
+            "role": "roles/securitycenter.findingsViewer",
+            "members": ["group:secops@deakin.edu.au"]
+          }
+        },
+        {
+          "address": "google_scc_source_iam_binding.nc_s1_owner_only",
+          "mode": "managed",
+          "type": "google_scc_source_iam_binding",
+          "name": "nc_s1_owner_only",
+          "provider_name": "registry.terraform.io/hashicorp/google",
+          "schema_version": 0,
+          "values": {
+            "organization": "1234",
+            "source": "2001",
+            "role": "roles/owner",
+            "members": ["group:secops@deakin.edu.au"]
+          }
+        },
+        {
+          "address": "google_scc_source_iam_binding.nc_s2_public_only",
+          "mode": "managed",
+          "type": "google_scc_source_iam_binding",
+          "name": "nc_s2_public_only",
+          "provider_name": "registry.terraform.io/hashicorp/google",
+          "schema_version": 0,
+          "values": {
+            "organization": "1234",
+            "source": "2002",
+            "role": "roles/securitycenter.findingsViewer",
+            "members": ["allAuthenticatedUsers"]
+          }
+        }
+        
+        
+      ]
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "google": { "name": "google", "full_name": "registry.terraform.io/hashicorp/google" }
+    }
+  },
+  "resource_changes": [],
+  "output_changes": {},
+  "prior_state": null,
+  "variables": {},
+  "timestamp": "2025-08-23T12:45:00Z",
+  "applyable": true,
+  "complete": true,
+  "errored": false
+}

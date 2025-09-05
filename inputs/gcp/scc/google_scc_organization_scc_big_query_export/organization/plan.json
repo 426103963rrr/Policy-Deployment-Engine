@@ -1,0 +1,39 @@
+{
+    "format_version": "1.2",
+    "terraform_version": "1.11.4",
+    "planned_values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "google_scc_organization_scc_big_query_export.c",
+            "mode": "managed",
+            "type": "google_scc_organization_scc_big_query_export",
+            "name": "c",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "schema_version": 0,
+            "values": {
+              "organization": "organizations/123456789",
+              "big_query_export_id": "scc_export_prod_australia-southeast1"
+            }
+          },
+          {
+            "address": "google_scc_organization_scc_big_query_export.nc",
+            "mode": "managed",
+            "type": "google_scc_organization_scc_big_query_export",
+            "name": "nc",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "schema_version": 0,
+            "values": {
+              "organization": "organizations/000000000",
+              "big_query_export_id": "default"
+            }
+          }
+        ]
+      }
+    },
+    "timestamp": "2025-08-23T04:00:00Z",
+    "applyable": true,
+    "complete": true,
+    "errored": false
+  }
+  
