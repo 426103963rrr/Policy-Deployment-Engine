@@ -5,8 +5,8 @@
     "display_name": {
       "description": "The user-defined name of the Dataset. The name can be up to 128 characters long and can be consist of any UTF-8 characters.",
       "required": true,
-      "security_impact": null,
-      "rationale": null,
+      "security_impact": false,
+      "rationale": "Display Name has no impact on the security of the resource or data contained.",
       "compliant": null,
       "non-compliant": null,
       "parent": null
@@ -32,8 +32,8 @@
     "encryption_spec": {
       "description": "Customer-managed encryption key spec for a Dataset. If set, this Dataset and all sub-resources of this Dataset will be secured by this key. Structure is [documented below](#nested_encryption_spec).",
       "required": false,
-      "security_impact": null,
-      "rationale": null,
+      "security_impact": true,
+      "rationale": "Correct encryption standards on the VertexAI Dataset is critical to maintain confidentiality of the data.",
       "compliant": null,
       "non-compliant": null,
       "parent": null,
@@ -41,10 +41,10 @@
         "kms_key_name": {
           "description": "Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource. Has the form: projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key. The key needs to be in the same region as where the resource is created.",
           "required": false,
-          "security_impact": null,
-          "rationale": null,
-          "compliant": null,
-          "non-compliant": null,
+          "security_impact": true,
+          "rationale": "The Encryption Key Name must be entered in the correct format to ensure encryption is matained on the dataset.",
+          "compliant": "projects/my-project/locations/australia/keyRings/my-kr/cryptoKeys/my-key",
+          "non-compliant": "projects/my-project/locations/us-east1/keyRings/my-kr/cryptoKeys/my-key",
           "parent": "encryption_spec"
         }
       }
