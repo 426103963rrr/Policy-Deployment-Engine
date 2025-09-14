@@ -2,7 +2,11 @@
 # Keep "c" as the name to indicate that this resource and its attributes are compliant
 
 resource "google_scc_event_threat_detection_custom_module" "c" {
+<<<<<<< HEAD
     display_name= "enablement_state -c"
+=======
+    display_name= "enablement_state"
+>>>>>>> dev
     type = "CONFIGURABLE_BAD_IP"
     organization = "123456789"
     config = jsonencode({

@@ -38,4 +38,5 @@ plan.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
-.DS_Store
+.DS_Store.DS_Store
+*plan 2

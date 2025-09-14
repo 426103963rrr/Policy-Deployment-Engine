@@ -1,0 +1,51 @@
+{
+  "resource_name": "scc_project_scc_big_query_export",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "big_query_export_id": {
+      "description": "Unique identifier for the BigQuery export within the project.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "A valid, unique export ID ensures proper identification of exports and prevents overwriting existing sensitive data.",
+      "compliant": "scc_export_prod_project_eu-west1",
+      "non-compliant": "default",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the export (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Provides context for admins but does not impact security.",
+      "compliant": "Export HIGH/CRITICAL severity findings to BigQuery for monitoring.",
+      "non-compliant": "",
+      "parent": null
+    },
+    "dataset": {
+      "description": "The BigQuery dataset where findings are exported. Format: projects/[projectId]/datasets/[datasetId]. Dataset names must contain only letters, numbers, or underscores.",
+      "required": false,
+      "security_impact": true,
+      "rationale": "Exports should be written to secure and approved datasets. Using temporary or default datasets may expose sensitive findings to unauthorized users.",
+      "compliant": "projects/my-secure-project/datasets/security_exports",
+      "non-compliant": "projects/test/datasets/tmp_dataset",
+      "parent": null
+    },
+    "filter": {
+      "description": "Expression defining which findings are exported. Can include conditions (e.g., severity) with logical operators (AND, OR).",
+      "required": false,
+      "security_impact": true,
+      "rationale": "A proper filter ensures only relevant findings are exported. Missing or weak filters may either miss critical issues or flood the dataset with irrelevant data.",
+      "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
+      "non-compliant": "",
+      "parent": null
+    },
+    "project": {
+      "description": "The project where the export is defined. If not provided, the provider project is used.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Specifies the scope of the export but does not directly affect security posture.",
+      "compliant": "my-secure-project",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "resource_name": "scc_project_notification_config",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "pubsub_topic": {
+      "description": "The Pub/Sub topic to send notifications to. Format: projects/[project_id]/topics/[topic].",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Notifications may contain sensitive findings. Sending to insecure or unauthorized topics risks exposing security data to unintended recipients.",
+      "compliant": "projects/security-core/topics/scc-findings",
+      "non-compliant": "projects/test/topics/public-topic",
+      "parent": null
+    },
+    "streaming_config": {
+      "description": "Configuration for triggering streaming-based notifications. Determines which findings are sent.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Defines which findings trigger notifications. Weak, missing, or overly broad filters can either exclude critical findings or generate noise.",
+      "compliant": "{ \"filter\": \"severity=\\\"HIGH\\\" OR severity=\\\"CRITICAL\\\"\" }",
+      "non-compliant": "{ \"filter\": \"\" }",
+      "parent": null,
+      "arguments": {
+        "filter": {
+          "description": "Expression to filter findings for notification. Supports logical operators and comparison operators.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "A proper filter ensures only relevant and high-severity findings are sent. Poor filters can miss important issues or overwhelm teams with unnecessary alerts.",
+          "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
+          "non-compliant": "severity=\"LOW\"",
+          "parent": "streaming_config"
+        }
+      }
+    },
+    "config_id": {
+      "description": "Unique identifier for the notification config within the project.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Ensures uniqueness and prevents conflicts, but does not directly impact security posture.",
+      "compliant": "scc_notif_config_project_high",
+      "non-compliant": "default",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the notification config (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Descriptions are informational only and do not affect security or functionality.",
+      "compliant": "Notification config for streaming HIGH/CRITICAL findings.",
+      "non-compliant": "",
+      "parent": null
+    },
+    "project": {
+      "description": "The project in which the notification config is defined. If not provided, the provider project is used.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Specifies scope but does not directly impact security posture.",
+      "compliant": "my-secure-project",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

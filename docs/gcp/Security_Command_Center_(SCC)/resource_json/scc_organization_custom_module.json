@@ -1,0 +1,89 @@
+{
+  "resource_name": "scc_organization_custom_module",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "display_name": {
+      "description": "The display name of the custom module. This becomes the finding category for all findings returned by this module.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "The display name is cosmetic and helps identify findings but does not directly affect security posture.",
+      "compliant": "enablement_state",
+      "non-compliant": "",
+      "parent": null
+    },
+    "enablement_state": {
+      "description": "The enablement state of the custom module. Possible values: ENABLED or DISABLED.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "If disabled, the module will not detect findings, resulting in blind spots in monitoring.",
+      "compliant": "ENABLED",
+      "non-compliant": "DISABLED",
+      "parent": null
+    },
+    "custom_config": {
+      "description": "Custom configuration for the module, including predicate, resource selector, severity, description, and recommendation.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Defines the detection logic for the module. Misconfigurations can lead to missed or incorrect findings.",
+      "compliant": "{ \"predicate\": { \"expression\": \"resource.rotationPeriod > duration(\\\"2592000s\\\")\" }, \"resource_selector\": { \"resource_types\": [\"cloudkms.googleapis.com/CryptoKey\"] }, \"severity\": \"MEDIUM\", \"description\": \"The rotation period of the identified cryptokey resource exceeds 30 days.\", \"recommendation\": \"Set the rotation period to at most 30 days.\" }",
+      "non-compliant": "{}",
+      "parent": null,
+      "arguments": {
+        "predicate": {
+          "description": "CEL expression that evaluates resource properties to produce findings. A finding is generated when the expression evaluates to true.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Defines the detection condition. If incorrect or missing, the module may fail to identify issues.",
+          "compliant": "resource.rotationPeriod > duration(\"2592000s\")",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "resource_selector": {
+          "description": "The resource types that this custom module evaluates.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Scoping the module to specific resource types ensures relevant findings. Incorrect values may miss or misclassify findings.",
+          "compliant": "[\"cloudkms.googleapis.com/CryptoKey\"]",
+          "non-compliant": "[]",
+          "parent": "custom_config"
+        },
+        "severity": {
+          "description": "Severity level assigned to findings. Valid values: CRITICAL, HIGH, MEDIUM, LOW.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Severity guides prioritization and response to findings. Incorrect values may result in improper triage.",
+          "compliant": "MEDIUM",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "description": {
+          "description": "Explanation of the vulnerability or misconfiguration detected by the module.",
+          "required": false,
+          "security_impact": false,
+          "rationale": "Helps analysts understand findings but does not affect detection logic.",
+          "compliant": "The rotation period of the identified cryptokey resource exceeds 30 days.",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "recommendation": {
+          "description": "Suggested remediation steps for the detected misconfiguration.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Recommendations ensure findings can be acted upon effectively. Without them, remediation may be delayed or incorrect.",
+          "compliant": "Set the rotation period to at most 30 days.",
+          "non-compliant": "",
+          "parent": "custom_config"
+        }
+      }
+    },
+    "organization": {
+      "description": "The numerical ID of the parent organization.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Defines scope of the module but does not affect detection or security posture directly.",
+      "compliant": "123456789",
+      "non-compliant": "000000000",
+      "parent": null
+    }
+  }
+}

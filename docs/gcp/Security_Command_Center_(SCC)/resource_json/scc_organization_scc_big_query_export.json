@@ -1,0 +1,51 @@
+{
+  "resource_name": "scc_organization_scc_big_query_export",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "organization": {
+      "description": "The organization where the BigQuery export configuration is created. Format: organizations/[organization_id].",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Defines the scope of the export but does not directly impact the security of exported data.",
+      "compliant": "organizations/123456789",
+      "non-compliant": "organizations/000000000",
+      "parent": null
+    },
+    "big_query_export_id": {
+      "description": "Unique identifier for the BigQuery export within the organization.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "A valid, unique export ID ensures the correct identification of exports and avoids conflicts or overwriting of sensitive data.",
+      "compliant": "scc_export_prod_australia-southeast1 -c",
+      "non-compliant": "default",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the export (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Used for documentation and clarity only; does not affect security of the configuration.",
+      "compliant": "Export of HIGH/CRITICAL findings to security dataset.",
+      "non-compliant": "",
+      "parent": null
+    },
+    "dataset": {
+      "description": "The BigQuery dataset where findings are exported. Format: projects/[projectId]/datasets/[datasetId]. Dataset names must contain only letters, numbers, or underscores.",
+      "required": false,
+      "security_impact": true,
+      "rationale": "Exports should be written to secure and approved datasets. Using unapproved or default datasets can expose sensitive findings.",
+      "compliant": "projects/my-project/datasets/security_exports",
+      "non-compliant": "projects/my-project/datasets/tmp_dataset",
+      "parent": null
+    },
+    "filter": {
+      "description": "Expression defining which findings are exported. Can include conditions (e.g., severity) combined with logical operators (AND, OR).",
+      "required": false,
+      "security_impact": true,
+      "rationale": "Filters ensure that only relevant findings are exported. Missing or overly broad filters can either miss critical issues or overwhelm the dataset with noise.",
+      "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

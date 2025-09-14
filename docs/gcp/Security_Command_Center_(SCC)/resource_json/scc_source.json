@@ -1,0 +1,33 @@
+{
+  "resource_name": "scc_source",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "display_name": {
+      "description": "The source’s display name. Must be unique within the parent organization and follow naming rules.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "The display name is used for identification and readability. It does not directly affect security but should be unique to avoid confusion.",
+      "compliant": "custom-threat-source",
+      "non-compliant": "default",
+      "parent": null
+    },
+    "organization": {
+      "description": "The organization in which the source exists. Format: organizations/[organization_id].",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Ensures the source is created in the correct organization. Misconfigured organization values can result in findings being logged under the wrong scope.",
+      "compliant": "organizations/123456789",
+      "non-compliant": "organizations/000000000",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the source (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Provides human-readable context for admins. This field does not impact security.",
+      "compliant": "Source for monitoring custom findings from internal threat detection systems.",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

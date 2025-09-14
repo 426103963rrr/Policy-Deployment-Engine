@@ -1,0 +1,98 @@
+{
+  "resource_name": "scc_folder_custom_module",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "display_name": {
+      "description": "The display name of the Security Health Analytics custom module. This display name becomes the finding category for all findings returned by the module.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "The display name improves readability and categorization but does not directly affect security.",
+      "compliant": "enablement_state",
+      "non-compliant": "",
+      "parent": null
+    },
+    "enablement_state": {
+      "description": "The enablement state of the custom module. Possible values are: ENABLED, DISABLED.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "If the module is disabled, findings will not be generated, resulting in blind spots in threat detection.",
+      "compliant": "ENABLED",
+      "non-compliant": "DISABLED",
+      "parent": null
+    },
+    "custom_config": {
+      "description": "The user-specified configuration for the custom module, defining conditions, outputs, and selectors.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "The custom configuration dictates what misconfigurations are detected. Weak or empty configs reduce coverage.",
+      "compliant": "{ \"predicate\": { \"expression\": \"resource.rotationPeriod > duration(\\\"2592000s\\\")\" }, \"severity\": \"LOW\", \"description\": \"Description of the custom module\", \"recommendation\": \"Steps to resolve violation\" }",
+      "non-compliant": "{}",
+      "parent": null,
+      "arguments": {
+        "predicate": {
+          "description": "CEL expression to evaluate resources and generate findings when true.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "The predicate determines detection logic. Without it, the module will not detect violations.",
+          "compliant": "resource.rotationPeriod > duration(\"2592000s\")",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "custom_output": {
+          "description": "Custom output properties to add additional context to findings.",
+          "required": false,
+          "security_impact": false,
+          "rationale": "Custom output enhances visibility but does not directly affect security posture.",
+          "compliant": "{ \"properties\": [{ \"name\": \"duration\", \"value_expression\": { \"expression\": \"resource.rotationPeriod\" } }] }",
+          "non-compliant": "{}",
+          "parent": "custom_config"
+        },
+        "resource_selector": {
+          "description": "The resource types that the custom module evaluates.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Ensures findings are scoped to the correct resource types. Misconfigured selectors may miss critical resources.",
+          "compliant": "[ \"cloudkms.googleapis.com/CryptoKey\" ]",
+          "non-compliant": "[]",
+          "parent": "custom_config"
+        },
+        "severity": {
+          "description": "The severity assigned to findings from this module. Valid values: CRITICAL, HIGH, MEDIUM, LOW.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Severity impacts prioritization of findings in incident response workflows.",
+          "compliant": "LOW",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "description": {
+          "description": "Text describing the vulnerability or misconfiguration detected by the custom module.",
+          "required": false,
+          "security_impact": false,
+          "rationale": "The description helps analysts understand the issue but does not affect detection logic.",
+          "compliant": "Description of the custom module",
+          "non-compliant": "",
+          "parent": "custom_config"
+        },
+        "recommendation": {
+          "description": "Steps recommended for resolving the detected misconfiguration or vulnerability.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Recommendations are critical for guiding remediation after detection.",
+          "compliant": "Steps to resolve violation",
+          "non-compliant": "",
+          "parent": "custom_config"
+        }
+      }
+    },
+    "folder": {
+      "description": "Numerical ID of the parent folder where the custom module is deployed.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Specifies scope of the module but does not directly influence detection logic.",
+      "compliant": "folders/987654321",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "resource_name": "scc_notification_config",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "pubsub_topic": {
+      "description": "The Pub/Sub topic to send notifications to. Format: projects/[project_id]/topics/[topic].",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Notifications may contain sensitive findings. Using an insecure or unauthorized topic risks exposing data to unintended subscribers.",
+      "compliant": "projects/security-core/topics/scc-findings",
+      "non-compliant": "projects/test/topics/public-topic",
+      "parent": null
+    },
+    "streaming_config": {
+      "description": "Configuration for triggering streaming-based notifications.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Defines which findings trigger notifications. Weak or missing filters may allow irrelevant data or exclude critical issues.",
+      "compliant": "{ \"filter\": \"severity=\\\"HIGH\\\" OR severity=\\\"CRITICAL\\\"\" }",
+      "non-compliant": "{ \"filter\": \"\" }",
+      "parent": null,
+      "arguments": {
+        "filter": {
+          "description": "Filter expression for selecting findings. Supports operators (=, >, <, :, etc.) and logical combinations (AND, OR, NOT).",
+          "required": true,
+          "security_impact": true,
+          "rationale": "Proper filtering ensures only relevant high-severity findings are sent. Overly broad or empty filters can reduce the effectiveness of alerting.",
+          "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
+          "non-compliant": "severity=\"LOW\"",
+          "parent": "streaming_config"
+        }
+      }
+    },
+    "organization": {
+      "description": "The organization in which the Notification Config is defined.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "This field defines scope but does not directly affect the security of the notification configuration.",
+      "compliant": "organizations/123456789012",
+      "non-compliant": "organizations/000000000000",
+      "parent": null
+    },
+    "config_id": {
+      "description": "Unique identifier for the notification config within the organization.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "Ensures uniqueness but does not directly affect security posture.",
+      "compliant": "scc_notif_config_good -c",
+      "non-compliant": "default",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the notification config (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Descriptions are informational only and do not affect security.",
+      "compliant": "Notification config with approved org",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

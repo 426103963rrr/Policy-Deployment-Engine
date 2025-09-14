@@ -1,0 +1,42 @@
+{
+  "resource_name": "scc_source_iam",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "source": {
+      "description": "The ID of the SCC source to which the IAM policy is attached.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Specifies the SCC source being secured. Incorrect or missing source values could result in IAM bindings not being applied to the intended findings source.",
+      "compliant": "5678",
+      "non-compliant": "",
+      "parent": null
+    },
+    "member/members": {
+      "description": "The identities being granted the role. Supported formats include user:{email}, group:{email}, serviceAccount:{email}, domain:{domain}, or project-level identifiers. Avoid allUsers and allAuthenticatedUsers as they grant broad access.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Defining correct members ensures least privilege. Using public principals exposes sensitive findings to unauthorized users.",
+      "compliant": "[\"group:secops@deakin.edu.au\"]",
+      "non-compliant": "[\"allUsers\"]",
+      "parent": null
+    },
+    "role": {
+      "description": "The role assigned to the members. Must be a valid Security Command Center role or a custom role in the format [projects|organizations]/{parent}/roles/{role-name}.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Roles determine access scope. Using non-SCC roles or overly permissive roles can create security risks.",
+      "compliant": "roles/securitycenter.findingsViewer",
+      "non-compliant": "roles/owner",
+      "parent": null
+    },
+    "policy_data": {
+      "description": "An IAM policy data source to define multiple bindings at once.",
+      "required": false,
+      "security_impact": true,
+      "rationale": "When used, policy_data ensures consistent IAM application. If misconfigured, it can unintentionally override other bindings.",
+      "compliant": "data.google_iam_policy.scc_policy",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}

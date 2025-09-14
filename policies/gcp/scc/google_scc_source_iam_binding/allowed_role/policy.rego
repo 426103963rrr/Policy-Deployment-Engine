@@ -3,6 +3,7 @@ package terraform.gcp.security.scc.google_scc_source_iam_binding.allowed_role
 import data.terraform.gcp.helpers
 import data.terraform.gcp.security.scc.google_scc_source_iam_binding.vars
 
+
 conditions := [
   [
     {

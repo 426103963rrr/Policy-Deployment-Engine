@@ -1,0 +1,62 @@
+{
+  "resource_name": "scc_folder_notification_config",
+  "subcategory": "Security Command Center (SCC)",
+  "arguments": {
+    "pubsub_topic": {
+      "description": "The Pub/Sub topic to send notifications to. Format: projects/[project_id]/topics/[topic].",
+      "required": true,
+      "security_impact": true,
+      "rationale": "Notifications are delivered to the specified Pub/Sub topic. Using an unapproved or insecure topic may expose findings to unauthorized subscribers.",
+      "compliant": "projects/security-core/topics/scc-findings",
+      "non-compliant": "projects/test/topics/public-topic",
+      "parent": null
+    },
+    "streaming_config": {
+      "description": "Configuration for triggering streaming-based notifications.",
+      "required": true,
+      "security_impact": true,
+      "rationale": "The streaming filter defines which findings trigger notifications. Incorrect filters may miss critical issues or create excessive noise.",
+      "compliant": "{ \"filter\": \"severity=\\\"HIGH\\\" OR severity=\\\"CRITICAL\\\"\" }",
+      "non-compliant": "{ \"filter\": \"\" }",
+      "parent": null,
+      "arguments": {
+        "filter": {
+          "description": "Filter expression applied across asset or finding events. Must include valid conditions such as severity levels to ensure important findings are captured.",
+          "required": true,
+          "security_impact": true,
+          "rationale": "A proper filter ensures that only relevant and high-severity findings are streamed. Missing or overly broad filters may reduce the effectiveness of alerts.",
+          "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
+          "non-compliant": "severity=\"LOW\"",
+          "parent": "streaming_config"
+        }
+      }
+    },
+    "folder": {
+      "description": "Numerical ID of the parent folder where this notification config is defined.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "The folder scope determines where notifications apply but does not affect the security of the configuration itself.",
+      "compliant": "folders/987654321",
+      "non-compliant": "",
+      "parent": null
+    },
+    "config_id": {
+      "description": "Unique identifier for the notification config within the organization.",
+      "required": true,
+      "security_impact": false,
+      "rationale": "The config ID ensures uniqueness but does not directly impact security.",
+      "compliant": "scc_notif_config_stream_good -c",
+      "non-compliant": "",
+      "parent": null
+    },
+    "description": {
+      "description": "Optional description of the notification config (max 1024 characters).",
+      "required": false,
+      "security_impact": false,
+      "rationale": "Descriptions are for documentation purposes only and do not affect security.",
+      "compliant": "Valid config with proper streaming filter",
+      "non-compliant": "",
+      "parent": null
+    }
+  }
+}
