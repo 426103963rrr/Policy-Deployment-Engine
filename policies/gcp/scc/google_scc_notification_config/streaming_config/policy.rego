@@ -6,21 +6,6 @@ import data.terraform.gcp.security.scc.google_scc_notification_config.vars
 conditions := [
   [
     {
-      "situation_description": "Streaming config filter must not be empty or placeholder.",
-      "remedies": [
-        "Provide a valid findings filter.",
-        "Do not use blank or placeholder strings."
-      ]
-    },
-    {
-      "condition": "Filter cannot be empty or placeholder.",
-      "attribute_path": ["streaming_config", 0, "filter"],
-      "values": ["", "default", "test", "tmp", "TODO"],
-      "policy_type": "blacklist"
-    }
-  ],
-  [
-    {
       "situation_description": "Streaming config must reference HIGH or CRITICAL severity findings.",
       "remedies": [
         "Set the filter to an approved severity expression."

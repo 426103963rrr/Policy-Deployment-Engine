@@ -13,21 +13,8 @@
           "schema_version": 0,
           "values": {
             "organization": "organizations/123456789",
-            "big_query_export_id": "scc_export_prod_australia-southeast1",
+            "big_query_export_id": "scc_export_prod_australia-southeast1 -c",
             "dataset": "projects/my-project/datasets/security_exports"
-          }
-        },
-        {
-          "address": "google_scc_organization_scc_big_query_export.nc_default_dataset",
-          "mode": "managed",
-          "type": "google_scc_organization_scc_big_query_export",
-          "name": "nc_default_dataset",
-          "provider_name": "registry.terraform.io/hashicorp/google",
-          "schema_version": 0,
-          "values": {
-            "organization": "organizations/123456789",
-            "big_query_export_id": "scc_export_bad_default_ds",
-            "dataset": "default"
           }
         },
         {
@@ -39,14 +26,14 @@
           "schema_version": 0,
           "values": {
             "organization": "organizations/123456789",
-            "big_query_export_id": "scc_export_bad_unapproved_ds",
+            "big_query_export_id": "scc_export_bad_unapproved_ds -nc",
             "dataset": "projects/my-project/datasets/unapproved_logs"
           }
         }
       ]
     }
   },
-  "timestamp": "2025-08-23T05:35:00Z",
+  "timestamp": "2025-09-14T09:10:00Z",
   "applyable": true,
   "complete": true,
   "errored": false

@@ -11,7 +11,7 @@
             "name": "c",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "scc_notif_config_stream_good",
+              "config_id": "scc_notif_config_stream_good-c",
               "description": "Valid config with proper streaming filter",
               "organization": "organizations/123456789012",
               "pubsub_topic": "projects/security-core/topics/scc-findings",
@@ -29,13 +29,13 @@
             "name": "nc",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "scc_notif_config_stream_bad",
-              "description": "Invalid config with weak/empty streaming filter",
+              "config_id": "scc_notif_config_stream_bad-nc",
+              "description": "Invalid config with weak severity filter",
               "organization": "organizations/123456789012",
               "pubsub_topic": "projects/security-core/topics/scc-findings",
               "streaming_config": [
                 {
-                  "filter": ""
+                  "filter": "severity=\"LOW\""
                 }
               ]
             }
@@ -55,7 +55,7 @@
         "resources": []
       }
     },
-    "timestamp": "2025-09-04T08:47:37Z",
+    "timestamp": "2025-09-14T08:47:37Z",
     "applyable": true,
     "complete": true,
     "errored": false

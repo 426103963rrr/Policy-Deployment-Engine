@@ -1,5 +1,5 @@
 resource "google_scc_notification_config" "c" {
-  config_id   = "scc_notif_config_stream_good"
+  config_id   = "scc_notif_config_stream_good -c"
   description = "Valid config with proper streaming filter"
 
   organization = "organizations/123456789012"

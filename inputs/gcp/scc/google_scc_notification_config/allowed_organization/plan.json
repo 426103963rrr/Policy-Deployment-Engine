@@ -11,14 +11,12 @@
             "name": "c",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "scc_notif_config_good",
-              "description": "Notification config with valid ID",
+              "config_id": "scc_notif_config_org_good -c",
+              "description": "Notification config with approved org",
               "organization": "organizations/123456789012",
               "pubsub_topic": "projects/security-core/topics/scc-findings",
               "streaming_config": [
-                {
-                  "filter": "severity=\"HIGH\" OR severity=\"CRITICAL\""
-                }
+                { "filter": "severity=\"HIGH\" OR severity=\"CRITICAL\"" }
               ]
             }
           },
@@ -29,14 +27,12 @@
             "name": "nc",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "NotifConfigBad",
-              "description": "Notification config with invalid ID",
-              "organization": "organizations/123456789012",
+              "config_id": "scc_notif_config_org_bad -nc",
+              "description": "Notification config with unapproved org",
+              "organization": "organizations/999999999999",
               "pubsub_topic": "projects/security-core/topics/scc-findings",
               "streaming_config": [
-                {
-                  "filter": "severity=\"HIGH\""
-                }
+                { "filter": "severity=\"HIGH\"" }
               ]
             }
           }
@@ -51,11 +47,9 @@
           "full_name": "registry.terraform.io/hashicorp/google"
         }
       },
-      "root_module": {
-        "resources": []
-      }
+      "root_module": { "resources": [] }
     },
-    "timestamp": "2025-09-04T09:09:48Z",
+    "timestamp": "2025-09-04T09:03:16Z",
     "applyable": true,
     "complete": true,
     "errored": false

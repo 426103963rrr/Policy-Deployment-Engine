@@ -1,4 +1,4 @@
-package terraform.gcp.security.scc.google_scc_notification_config.organization
+package terraform.gcp.security.scc.google_scc_notification_config.allowed_organization
 
 import data.terraform.gcp.helpers
 import data.terraform.gcp.security.scc.google_scc_notification_config.vars

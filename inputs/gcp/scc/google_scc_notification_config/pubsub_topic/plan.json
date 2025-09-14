@@ -11,7 +11,7 @@
             "name": "c",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "scc_notif_config_good",
+              "config_id": "scc_notif_config_good -c",
               "description": "Valid config with secure Pub/Sub topic",
               "organization": "organizations/123456789012",
               "pubsub_topic": "projects/security-core/topics/scc-findings",
@@ -29,7 +29,7 @@
             "name": "nc",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "values": {
-              "config_id": "scc_notif_config_bad",
+              "config_id": "scc_notif_config_bad -nc",
               "description": "Invalid config using unapproved Pub/Sub topic",
               "organization": "organizations/123456789012",
               "pubsub_topic": "projects/test-project/topics/tmp-topic",
