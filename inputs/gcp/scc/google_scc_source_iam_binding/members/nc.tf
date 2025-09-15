@@ -4,7 +4,7 @@ resource "google_scc_source_iam_binding" "scc_iam_binding_nc" {
   role         = "roles/securitycenter.findingsViewer"
 
   members = [
-    "allUsers -nc",
-    "user:external@gmail.comm -nc",
+    "nc1",
+    "nc2",
   ]
 }

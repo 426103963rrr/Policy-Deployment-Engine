@@ -13,7 +13,7 @@
           "schema_version": 0,
           "values": {
             "organization": "organizations/123456789",
-            "big_query_export_id": "scc_export_prod_australia-southeast1 -c",
+            "big_query_export_id": "c",
             "dataset": "projects/my-project/datasets/security_exports"
           }
         },
@@ -26,7 +26,7 @@
           "schema_version": 0,
           "values": {
             "organization": "organizations/123456789",
-            "big_query_export_id": "scc_export_bad_unapproved_ds -nc",
+            "big_query_export_id": "nc",
             "dataset": "projects/my-project/datasets/unapproved_logs"
           }
         }

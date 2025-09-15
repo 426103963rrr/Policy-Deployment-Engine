@@ -4,6 +4,6 @@ resource "google_scc_source_iam_binding" "scc_iam_binding_c" {
   role         = "roles/securitycenter.findingsViewer"
 
   members = [
-    "group:secops@deakin.edu.au -c",
+    "c",
   ]
 }

@@ -1,5 +1,5 @@
 resource "google_scc_notification_config" "nc" {
-  config_id   = "scc_notif_config_bad -nc"
+  config_id   = "nc"
   description = "Invalid config using unapproved Pub/Sub topic"
 
   organization = "organizations/123456789012"

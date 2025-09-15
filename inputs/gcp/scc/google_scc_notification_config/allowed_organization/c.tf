@@ -1,5 +1,5 @@
 resource "google_scc_notification_config" "c" {
-  config_id   = "scc_notif_config_org_good -c"
+  config_id   = "c"
   description = "Notification config with approved org"
 
 

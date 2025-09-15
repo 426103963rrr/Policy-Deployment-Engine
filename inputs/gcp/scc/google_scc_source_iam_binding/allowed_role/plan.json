@@ -14,7 +14,7 @@
           "values": {
             "organization": "1234",
             "source": "5678",
-            "role": "roles/securitycenter.findingsViewer -c",
+            "role": "c",
             "members": ["group:secops@deakin.edu.au"]
           }
         },
@@ -28,7 +28,7 @@
           "values": {
             "organization": "1234",
             "source": "2001",
-            "role": "roles/owner -nc1",
+            "role": "nc1",
             "members": ["group:secops@deakin.edu.au"]
           }
         },
@@ -42,7 +42,7 @@
           "values": {
             "organization": "1234",
             "source": "2002",
-            "role": "roles/securitycenter.findingsViewer -nc2",
+            "role": "nc2",
             "members": ["allAuthenticatedUsers"]
           }
         }

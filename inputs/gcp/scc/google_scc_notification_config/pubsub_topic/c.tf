@@ -1,5 +1,5 @@
 resource "google_scc_notification_config" "c" {
-  config_id   = "scc_notif_config_good -c"
+  config_id   = "c"
   description = "Valid config with secure Pub/Sub topic"
 
   organization = "organizations/123456789012"

@@ -13,7 +13,7 @@
             "schema_version": 0,
             "values": {
               "organization": "organizations/123456789",
-              "big_query_export_id": "scc_export_prod_australia-southeast1 -c",
+              "big_query_export_id": "c",
               "filter": "severity=\"HIGH\" OR severity=\"CRITICAL\""
             }
           },
@@ -26,7 +26,7 @@
             "schema_version": 0,
             "values": {
               "organization": "organizations/123456789",
-              "big_query_export_id": "scc_export_bad_filter -nc",
+              "big_query_export_id": "nc1",
               "filter": ""
             }
           },
@@ -39,7 +39,7 @@
             "schema_version": 0,
             "values": {
               "organization": "organizations/123456789",
-              "big_query_export_id": "scc_export_bad_filter_no_severity -nc",
+              "big_query_export_id": "nc2",
               "filter": "category:\"Firewall\""
             }
           }

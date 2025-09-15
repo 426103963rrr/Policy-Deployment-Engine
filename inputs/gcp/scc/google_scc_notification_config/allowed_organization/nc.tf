@@ -1,5 +1,5 @@
 resource "google_scc_notification_config" "nc" {
-  config_id   = "scc_notif_config_org_bad -nc"
+  config_id   = "nc"
   description = "Notification config with unapproved org"
 
 
