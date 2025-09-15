@@ -19,48 +19,23 @@
           }
         },
         {
-          "address": "google_scc_source_iam_binding.nc_s1_owner_only",
+          "address": "google_scc_source_iam_binding.nc",
           "mode": "managed",
           "type": "google_scc_source_iam_binding",
-          "name": "nc_s1_owner_only",
+          "name": "nc",
           "provider_name": "registry.terraform.io/hashicorp/google",
           "schema_version": 0,
           "values": {
             "organization": "1234",
             "source": "2001",
-            "role": "nc1",
-            "members": ["group:secops@deakin.edu.au"]
-          }
-        },
-        {
-          "address": "google_scc_source_iam_binding.nc_s2_public_only",
-          "mode": "managed",
-          "type": "google_scc_source_iam_binding",
-          "name": "nc_s2_public_only",
-          "provider_name": "registry.terraform.io/hashicorp/google",
-          "schema_version": 0,
-          "values": {
-            "organization": "1234",
-            "source": "2002",
-            "role": "nc2",
+            "role": "nc",
             "members": ["allAuthenticatedUsers"]
           }
         }
-        
-        
       ]
     }
   },
-  "configuration": {
-    "provider_config": {
-      "google": { "name": "google", "full_name": "registry.terraform.io/hashicorp/google" }
-    }
-  },
-  "resource_changes": [],
-  "output_changes": {},
-  "prior_state": null,
-  "variables": {},
-  "timestamp": "2025-08-23T12:45:00Z",
+  "timestamp": "2025-09-15T12:00:00Z",
   "applyable": true,
   "complete": true,
   "errored": false

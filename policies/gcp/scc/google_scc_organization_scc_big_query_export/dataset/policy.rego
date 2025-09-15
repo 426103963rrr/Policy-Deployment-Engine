@@ -14,6 +14,7 @@ conditions := [
     {
       "condition": "Dataset must match the approved list.",
       "attribute_path": ["dataset"],
+      "resource_value_name": "name",
       "values": [
         "projects/my-project/datasets/security_exports"
       ],
@@ -21,6 +22,7 @@ conditions := [
     }
   ]
 ]
+
 
 message := helpers.get_multi_summary(conditions, vars.variables).message
 details := helpers.get_multi_summary(conditions, vars.variables).details

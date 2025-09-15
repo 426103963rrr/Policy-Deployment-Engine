@@ -12,6 +12,7 @@ conditions := [
     {
       "condition": "Disallow empty or missing filter.",
       "attribute_path": ["filter"],
+      "resource_value_name": "name",
       "values": [null, ""],
       "policy_type": "blacklist"
     }
@@ -24,6 +25,7 @@ conditions := [
     {
       "condition": "Allow only approved severity filters.",
       "attribute_path": ["filter"],
+      "resource_value_name": "name",
       "values": [
         "severity=\"HIGH\"",
         "severity=\"CRITICAL\"",
@@ -35,6 +37,7 @@ conditions := [
     }
   ]
 ]
+
 
 message := helpers.get_multi_summary(conditions, vars.variables).message
 details := helpers.get_multi_summary(conditions, vars.variables).details

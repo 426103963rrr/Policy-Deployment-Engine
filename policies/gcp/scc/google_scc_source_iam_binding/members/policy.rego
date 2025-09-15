@@ -1,7 +1,7 @@
 package terraform.gcp.security.scc.google_scc_source_iam_binding.members
 
 import data.terraform.gcp.helpers
-import data.terraform.gcp.security.scc.google_scc_source_iam_binding.members.vars
+import data.terraform.gcp.security.scc.google_scc_source_iam_binding.vars
 
 conditions := [
   [
@@ -14,7 +14,8 @@ conditions := [
     },
     {
       "condition": "Members must belong to the approved list.",
-      "attribute_path": ["members"],
+      "attribute_path": ["members", 0],
+      "resource_value_name": "name",
       "values": [
         "group:secops@deakin.edu.au",
         "user:admin@deakin.edu.au",
@@ -26,5 +27,7 @@ conditions := [
   ]
 ]
 
-message := helpers.get_multi_summary(conditions, vars.variables).message
-details := helpers.get_multi_summary(conditions, vars.variables).details
+summary := helpers.get_multi_summary(conditions, vars.variables)
+
+message := summary.message
+details := summary.details

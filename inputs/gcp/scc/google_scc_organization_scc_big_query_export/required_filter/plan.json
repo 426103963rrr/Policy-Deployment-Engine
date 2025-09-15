@@ -34,7 +34,7 @@
             "address": "google_scc_organization_scc_big_query_export.nc_no_sev",
             "mode": "managed",
             "type": "google_scc_organization_scc_big_query_export",
-            "name": "nc_no_sev",
+            "name": "nc",
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {

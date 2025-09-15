@@ -13,7 +13,8 @@ conditions := [
     },
     {
       "condition": "Export ID must match the approved list.",
-      "attribute_path": ["big_query_export_id"],
+      "attribute_path": ["big_query_export_id"], # field from TF plan
+      "resource_value_name": "name",             # identifier from vars
       "values": [
         "scc_export_prod_australia-southeast1",
         "scc_export_prod_us-central1",
@@ -24,5 +25,7 @@ conditions := [
   ]
 ]
 
-message := helpers.get_multi_summary(conditions, vars.variables).message
-details := helpers.get_multi_summary(conditions, vars.variables).details
+summary := helpers.get_multi_summary(conditions, vars.variables)
+
+message := summary.message
+details := summary.details
