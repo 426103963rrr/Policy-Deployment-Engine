@@ -1,10 +1,10 @@
 resource "google_scc_organization_scc_big_query_export" "nc" {
-  organization        = "organizations/123456789"
-  big_query_export_id = "nc1"
+  organization        = "nc1"
+  big_query_export_id = "default-test-export"
   filter              = ""  
 }
 resource "google_scc_organization_scc_big_query_export" "nc_no_sev" {
-  organization        = "organizations/123456789"
-  big_query_export_id = "nc2"
+  organization        = "nc2"
+  big_query_export_id = "tmp-scc-export"
   filter              = "category:\"Firewall\""  
 }

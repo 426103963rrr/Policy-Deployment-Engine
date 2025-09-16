@@ -12,8 +12,8 @@
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {
-              "organization": "organizations/123456789",
-              "big_query_export_id": "c",
+              "organization": "c",
+              "big_query_export_id": "scc_export_prod_australia-southeast1",
               "filter": "severity=\"HIGH\" OR severity=\"CRITICAL\""
             }
           },
@@ -25,8 +25,8 @@
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {
-              "organization": "organizations/123456789",
-              "big_query_export_id": "nc1",
+              "organization": "nc1",
+              "big_query_export_id": "default-test-export",
               "filter": ""
             }
           },
@@ -38,8 +38,8 @@
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {
-              "organization": "organizations/123456789",
-              "big_query_export_id": "nc2",
+              "organization": "nc2",
+              "big_query_export_id": "tmp-scc-export",
               "filter": "category:\"Firewall\""
             }
           }

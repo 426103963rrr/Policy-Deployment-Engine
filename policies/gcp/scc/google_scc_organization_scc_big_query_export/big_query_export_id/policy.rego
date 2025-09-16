@@ -13,8 +13,8 @@ conditions := [
     },
     {
       "condition": "Export ID must match the approved list.",
-      "attribute_path": ["big_query_export_id"], # field from TF plan
-      "resource_value_name": "name",             # identifier from vars
+      "attribute_path": ["big_query_export_id"], 
+
       "values": [
         "scc_export_prod_australia-southeast1",
         "scc_export_prod_us-central1",

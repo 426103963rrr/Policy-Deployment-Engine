@@ -1,6 +1,6 @@
 resource "google_scc_source_iam_binding" "nc" {
-  organization = "1234"
+  organization = "nc"
   source       = "2001"
-  role         = "nc"
+  role         = "roles/owner"
   members      = ["allAuthenticatedUsers"]
 }

@@ -15,7 +15,6 @@ conditions := [
     {
       "condition": "Members must belong to the approved list.",
       "attribute_path": ["members", 0],
-      "resource_value_name": "name",
       "values": [
         "group:secops@deakin.edu.au",
         "user:admin@deakin.edu.au",

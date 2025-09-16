@@ -3,5 +3,5 @@ package terraform.gcp.security.scc.google_scc_organization_scc_big_query_export.
 variables := {
   "friendly_resource_name": "SCC BigQuery Export",
   "resource_type": "google_scc_organization_scc_big_query_export",
-  "resource_value_name": "name"
+  "resource_value_name": "organization"
 }

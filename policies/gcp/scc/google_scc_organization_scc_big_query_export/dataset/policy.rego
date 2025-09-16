@@ -14,7 +14,6 @@ conditions := [
     {
       "condition": "Dataset must match the approved list.",
       "attribute_path": ["dataset"],
-      "resource_value_name": "name",
       "values": [
         "projects/my-project/datasets/security_exports"
       ],
