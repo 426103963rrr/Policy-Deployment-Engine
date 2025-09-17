@@ -18,7 +18,7 @@
           }
         },
         {
-          "address": "google_scc_organization_scc_big_query_export.nc_unapproved_dataset",
+          "address": "google_scc_organization_scc_big_query_export.nc",
           "mode": "managed",
           "type": "google_scc_organization_scc_big_query_export",
           "name": "nc",

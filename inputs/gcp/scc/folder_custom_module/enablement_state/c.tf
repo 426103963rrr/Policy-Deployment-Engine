@@ -1,12 +1,22 @@
 resource "google_folder" "folder_c" {
+<<<<<<< HEAD
   parent              = "organizations/123456789"
   display_name        = "c"
+=======
+  parent       = "organizations/123456789"
+  display_name = "c"
+>>>>>>> dev
   deletion_protection = false
 }
 
 resource "google_scc_folder_custom_module" "c" {
+<<<<<<< HEAD
   folder          = google_folder.folder_c.folder_id
   display_name    = "c"
+=======
+  folder = google_folder.folder_c.folder_id
+  display_name = "c"
+>>>>>>> dev
   enablement_state = "ENABLED"
 
   custom_config {

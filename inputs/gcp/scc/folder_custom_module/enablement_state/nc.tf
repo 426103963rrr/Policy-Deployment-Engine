@@ -1,4 +1,5 @@
 resource "google_folder" "folder_nc" {
+<<<<<<< HEAD
   parent              = "organizations/123456789"
   display_name        = "nc"
   deletion_protection = false
@@ -7,6 +8,16 @@ resource "google_folder" "folder_nc" {
 resource "google_scc_folder_custom_module" "nc_module" {
   folder           = google_folder.folder_nc.folder_id
   display_name     = "nc"
+=======
+  parent       = "organizations/123456789"
+  display_name = "nc"
+  deletion_protection = false
+}
+
+resource "google_scc_folder_custom_module" "nc" {
+  folder = google_folder.folder_nc.folder_id
+  display_name = "nc"
+>>>>>>> dev
   enablement_state = "DISABLED"
 
   custom_config {

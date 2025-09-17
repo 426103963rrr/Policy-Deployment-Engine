@@ -31,7 +31,7 @@
             }
           },
           {
-            "address": "google_scc_organization_scc_big_query_export.nc_no_sev",
+            "address": "google_scc_organization_scc_big_query_export.nc1",
             "mode": "managed",
             "type": "google_scc_organization_scc_big_query_export",
             "name": "nc",
