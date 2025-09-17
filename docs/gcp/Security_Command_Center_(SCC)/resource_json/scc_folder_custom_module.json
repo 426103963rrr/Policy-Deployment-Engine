@@ -7,8 +7,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "The display name improves readability and categorization but does not directly affect security.",
-      "compliant": "enablement_state",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "enablement_state": {
@@ -25,8 +25,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "The custom configuration dictates what misconfigurations are detected. Weak or empty configs reduce coverage.",
-      "compliant": "{ \"predicate\": { \"expression\": \"resource.rotationPeriod > duration(\\\"2592000s\\\")\" }, \"severity\": \"LOW\", \"description\": \"Description of the custom module\", \"recommendation\": \"Steps to resolve violation\" }",
-      "non-compliant": "{}",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null,
       "arguments": {
         "predicate": {
@@ -34,8 +34,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "The predicate determines detection logic. Without it, the module will not detect violations.",
-          "compliant": "resource.rotationPeriod > duration(\"2592000s\")",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "custom_output": {
@@ -43,8 +43,8 @@
           "required": false,
           "security_impact": false,
           "rationale": "Custom output enhances visibility but does not directly affect security posture.",
-          "compliant": "{ \"properties\": [{ \"name\": \"duration\", \"value_expression\": { \"expression\": \"resource.rotationPeriod\" } }] }",
-          "non-compliant": "{}",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "resource_selector": {
@@ -52,8 +52,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Ensures findings are scoped to the correct resource types. Misconfigured selectors may miss critical resources.",
-          "compliant": "[ \"cloudkms.googleapis.com/CryptoKey\" ]",
-          "non-compliant": "[]",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "severity": {
@@ -61,8 +61,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Severity impacts prioritization of findings in incident response workflows.",
-          "compliant": "LOW",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "description": {
@@ -70,8 +70,8 @@
           "required": false,
           "security_impact": false,
           "rationale": "The description helps analysts understand the issue but does not affect detection logic.",
-          "compliant": "Description of the custom module",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "recommendation": {
@@ -79,8 +79,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Recommendations are critical for guiding remediation after detection.",
-          "compliant": "Steps to resolve violation",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         }
       }
@@ -90,8 +90,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Specifies scope of the module but does not directly influence detection logic.",
-      "compliant": "folders/987654321",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

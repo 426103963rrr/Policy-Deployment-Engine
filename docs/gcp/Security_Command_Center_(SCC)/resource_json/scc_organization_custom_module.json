@@ -7,8 +7,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "The display name is cosmetic and helps identify findings but does not directly affect security posture.",
-      "compliant": "enablement_state",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "enablement_state": {
@@ -25,8 +25,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Defines the detection logic for the module. Misconfigurations can lead to missed or incorrect findings.",
-      "compliant": "{ \"predicate\": { \"expression\": \"resource.rotationPeriod > duration(\\\"2592000s\\\")\" }, \"resource_selector\": { \"resource_types\": [\"cloudkms.googleapis.com/CryptoKey\"] }, \"severity\": \"MEDIUM\", \"description\": \"The rotation period of the identified cryptokey resource exceeds 30 days.\", \"recommendation\": \"Set the rotation period to at most 30 days.\" }",
-      "non-compliant": "{}",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null,
       "arguments": {
         "predicate": {
@@ -34,8 +34,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Defines the detection condition. If incorrect or missing, the module may fail to identify issues.",
-          "compliant": "resource.rotationPeriod > duration(\"2592000s\")",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "resource_selector": {
@@ -43,8 +43,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Scoping the module to specific resource types ensures relevant findings. Incorrect values may miss or misclassify findings.",
-          "compliant": "[\"cloudkms.googleapis.com/CryptoKey\"]",
-          "non-compliant": "[]",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "severity": {
@@ -52,8 +52,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Severity guides prioritization and response to findings. Incorrect values may result in improper triage.",
-          "compliant": "MEDIUM",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "description": {
@@ -61,8 +61,8 @@
           "required": false,
           "security_impact": false,
           "rationale": "Helps analysts understand findings but does not affect detection logic.",
-          "compliant": "The rotation period of the identified cryptokey resource exceeds 30 days.",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "recommendation": {
@@ -70,8 +70,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Recommendations ensure findings can be acted upon effectively. Without them, remediation may be delayed or incorrect.",
-          "compliant": "Set the rotation period to at most 30 days.",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         }
       }
@@ -81,8 +81,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Defines scope of the module but does not affect detection or security posture directly.",
-      "compliant": "123456789",
-      "non-compliant": "000000000",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

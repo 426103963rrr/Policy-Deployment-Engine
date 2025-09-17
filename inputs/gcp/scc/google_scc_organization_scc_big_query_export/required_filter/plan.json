@@ -25,7 +25,7 @@
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {
-              "organization": "nc1",
+              "organization": "nc",
               "big_query_export_id": "default-test-export",
               "filter": ""
             }
@@ -38,7 +38,7 @@
             "provider_name": "registry.terraform.io/hashicorp/google",
             "schema_version": 0,
             "values": {
-              "organization": "nc2",
+              "organization": "nc1",
               "big_query_export_id": "tmp-scc-export",
               "filter": "category:\"Firewall\""
             }

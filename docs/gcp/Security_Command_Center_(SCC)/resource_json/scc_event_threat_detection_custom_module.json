@@ -7,14 +7,14 @@
       "required": false,
       "security_impact": false,
       "rationale": "Display names are for usability only and do not impact security.",
-      "compliant": "enablement_state -c",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "type": {
       "description": "The immutable type of Event Threat Detection module. Determines what kind of threat the module detects.",
       "required": true,
-      "security_impact": true,
+      "security_impact": false,
       "rationale": "Using a valid detection type (e.g., CONFIGURABLE_BAD_IP) ensures the module functions correctly. Invalid types prevent proper detection.",
       "compliant": "CONFIGURABLE_BAD_IP",
       "non-compliant": "INVALID_TYPE",
@@ -25,17 +25,17 @@
       "required": true,
       "security_impact": false,
       "rationale": "This ID determines scope but does not directly affect detection or security posture.",
-      "compliant": "123456789",
-      "non-compliant": "000000000",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "config": {
-      "description": "Configuration details for the custom module. Includes metadata such as severity, description, recommendation, and the IPs to detect.",
+      "description": "Configuration details for the custom module. Includes detection logic parameters such as suspicious login detection settings.",
       "required": true,
       "security_impact": true,
-      "rationale": "The configuration defines the detection logic. Incorrect or empty values will result in incomplete or ineffective threat detection.",
-      "compliant": "{ \"metadata\": { \"severity\": \"LOW\", \"description\": \"Flagged by Forcepoint as malicious\", \"recommendation\": \"Contact the owner of the relevant project.\" }, \"ips\": [\"192.0.2.1\", \"192.0.2.0/24\"] }",
-      "non-compliant": "{}",
+      "rationale": "The configuration defines the detection logic. If suspiciousLoginDetector.enabled is not set to true, login anomalies may not be detected.",
+      "compliant": "{\"suspiciousLoginDetector\":{\"enabled\":true,\"threshold\":5,\"timeWindow\":\"10m\"}}",
+      "non-compliant": "{\"suspiciousLoginDetector\":{\"enabled\":false}}",
       "parent": null
     },
     "enablement_state": {

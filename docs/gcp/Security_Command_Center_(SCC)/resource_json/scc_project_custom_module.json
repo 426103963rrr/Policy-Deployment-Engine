@@ -7,8 +7,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "The display name is informational and helps analysts identify findings but does not affect security.",
-      "compliant": "enablement_state",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "enablement_state": {
@@ -25,8 +25,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "The configuration defines how findings are generated. Weak or missing configs may reduce visibility of important issues.",
-      "compliant": "{ \"predicate\": { \"expression\": \"resource.rotationPeriod > duration(\\\"2592000s\\\")\" }, \"resource_selector\": { \"resource_types\": [\"cloudkms.googleapis.com/CryptoKey\"] }, \"severity\": \"LOW\", \"recommendation\": \"Steps to resolve violation\" }",
-      "non-compliant": "{}",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null,
       "arguments": {
         "predicate": {
@@ -34,8 +34,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Predicate logic defines detection conditions. Without it, no findings will be generated.",
-          "compliant": "resource.rotationPeriod > duration(\"2592000s\")",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "resource_selector": {
@@ -43,8 +43,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Restricting modules to relevant resources ensures accurate findings. Empty or incorrect selectors may result in gaps.",
-          "compliant": "[\"cloudkms.googleapis.com/CryptoKey\"]",
-          "non-compliant": "[]",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "severity": {
@@ -52,8 +52,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Severity impacts prioritization in security workflows. Incorrect levels may delay critical remediation.",
-          "compliant": "LOW",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         },
         "recommendation": {
@@ -61,8 +61,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "Without clear recommendations, security teams may be unable to remediate findings effectively.",
-          "compliant": "Steps to resolve violation",
-          "non-compliant": "",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "custom_config"
         }
       }
@@ -72,8 +72,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Defines scope but does not directly impact security posture.",
-      "compliant": "cefwed",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

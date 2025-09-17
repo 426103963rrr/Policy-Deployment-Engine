@@ -34,8 +34,8 @@
     "organization": {
       "description": "The organization in which the Notification Config is defined.",
       "required": true,
-      "security_impact": false,
-      "rationale": "This field defines scope but does not directly affect the security of the notification configuration.",
+      "security_impact": true,
+      "rationale": "Ensuring the config is tied to the correct organization scope is critical for security. Misconfigured organizations may leak findings or fail to capture events.",
       "compliant": "organizations/123456789012",
       "non-compliant": "organizations/000000000000",
       "parent": null
@@ -45,8 +45,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Ensures uniqueness but does not directly affect security posture.",
-      "compliant": "scc_notif_config_good -c",
-      "non-compliant": "default",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "description": {
@@ -54,8 +54,8 @@
       "required": false,
       "security_impact": false,
       "rationale": "Descriptions are informational only and do not affect security.",
-      "compliant": "Notification config with approved org",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

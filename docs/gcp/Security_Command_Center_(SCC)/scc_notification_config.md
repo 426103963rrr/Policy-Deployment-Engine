@@ -11,9 +11,9 @@ Reference: [Terraform Registry – scc_notification_config](https://registry.ter
 |----------|-------------|----------|-----------------|-----------|-----------|---------------|
 | `pubsub_topic` | The Pub/Sub topic to send notifications to. Format: projects/[project_id]/topics/[topic]. | true | true | Notifications may contain sensitive findings. Using an insecure or unauthorized topic risks exposing data to unintended subscribers. | projects/security-core/topics/scc-findings | projects/test/topics/public-topic |
 | `streaming_config` | Configuration for triggering streaming-based notifications. | true | true | Defines which findings trigger notifications. Weak or missing filters may allow irrelevant data or exclude critical issues. | { "filter": "severity=\"HIGH\" OR severity=\"CRITICAL\"" } | { "filter": "" } |
-| `organization` | The organization in which the Notification Config is defined. | true | false | This field defines scope but does not directly affect the security of the notification configuration. | organizations/123456789012 | organizations/000000000000 |
-| `config_id` | Unique identifier for the notification config within the organization. | true | false | Ensures uniqueness but does not directly affect security posture. | scc_notif_config_good -c | default |
-| `description` | Optional description of the notification config (max 1024 characters). | false | false | Descriptions are informational only and do not affect security. | Notification config with approved org |  |
+| `organization` | The organization in which the Notification Config is defined. | true | true | Ensuring the config is tied to the correct organization scope is critical for security. Misconfigured organizations may leak findings or fail to capture events. | organizations/123456789012 | organizations/000000000000 |
+| `config_id` | Unique identifier for the notification config within the organization. | true | false | Ensures uniqueness but does not directly affect security posture. | None | None |
+| `description` | Optional description of the notification config (max 1024 characters). | false | false | Descriptions are informational only and do not affect security. | None | None |
 
 ### streaming_config Block
 | Argument | Description | Required | Security Impact | Rationale | Compliant | Non-Compliant |

@@ -7,8 +7,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Specifies the SCC source being secured. Incorrect or missing source values could result in IAM bindings not being applied to the intended findings source.",
-      "compliant": "5678",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "member/members": {
@@ -34,8 +34,8 @@
       "required": false,
       "security_impact": true,
       "rationale": "When used, policy_data ensures consistent IAM application. If misconfigured, it can unintentionally override other bindings.",
-      "compliant": "data.google_iam_policy.scc_policy",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

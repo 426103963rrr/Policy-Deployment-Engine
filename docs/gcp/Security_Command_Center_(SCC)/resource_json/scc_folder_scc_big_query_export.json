@@ -7,8 +7,8 @@
       "required": false,
       "security_impact": false,
       "rationale": "The description is for documentation purposes only and does not affect security.",
-      "compliant": "Export of HIGH/CRITICAL findings to BigQuery for long-term analysis.",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "dataset": {
@@ -16,8 +16,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Exports must target approved, secure datasets. Using temporary or default datasets risks accidental exposure.",
-      "compliant": "projects/my-project/datasets/security_exports",
-      "non-compliant": "projects/my-project/datasets/tmp_dataset",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "filter": {
@@ -25,8 +25,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Without a proper filter, important findings may be missed or too much irrelevant data may be exported, weakening security analysis.",
-      "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "folder": {
@@ -34,8 +34,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Determines scope of the export but does not directly affect security posture.",
-      "compliant": "folders/987654321",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "big_query_export_id": {
@@ -43,8 +43,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Unique, descriptive export IDs help ensure correct configuration and prevent overwriting exports.",
-      "compliant": "scc_export_prod_australia-southeast1",
-      "non-compliant": "default",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

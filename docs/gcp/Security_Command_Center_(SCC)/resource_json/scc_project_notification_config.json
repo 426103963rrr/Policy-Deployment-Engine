@@ -7,8 +7,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Notifications may contain sensitive findings. Sending to insecure or unauthorized topics risks exposing security data to unintended recipients.",
-      "compliant": "projects/security-core/topics/scc-findings",
-      "non-compliant": "projects/test/topics/public-topic",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "streaming_config": {
@@ -16,8 +16,8 @@
       "required": true,
       "security_impact": true,
       "rationale": "Defines which findings trigger notifications. Weak, missing, or overly broad filters can either exclude critical findings or generate noise.",
-      "compliant": "{ \"filter\": \"severity=\\\"HIGH\\\" OR severity=\\\"CRITICAL\\\"\" }",
-      "non-compliant": "{ \"filter\": \"\" }",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null,
       "arguments": {
         "filter": {
@@ -25,8 +25,8 @@
           "required": true,
           "security_impact": true,
           "rationale": "A proper filter ensures only relevant and high-severity findings are sent. Poor filters can miss important issues or overwhelm teams with unnecessary alerts.",
-          "compliant": "severity=\"HIGH\" OR severity=\"CRITICAL\"",
-          "non-compliant": "severity=\"LOW\"",
+          "compliant": null,
+          "non-compliant": null,
           "parent": "streaming_config"
         }
       }
@@ -36,8 +36,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Ensures uniqueness and prevents conflicts, but does not directly impact security posture.",
-      "compliant": "scc_notif_config_project_high",
-      "non-compliant": "default",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "description": {
@@ -45,8 +45,8 @@
       "required": false,
       "security_impact": false,
       "rationale": "Descriptions are informational only and do not affect security or functionality.",
-      "compliant": "Notification config for streaming HIGH/CRITICAL findings.",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     },
     "project": {
@@ -54,8 +54,8 @@
       "required": true,
       "security_impact": false,
       "rationale": "Specifies scope but does not directly impact security posture.",
-      "compliant": "my-secure-project",
-      "non-compliant": "",
+      "compliant": null,
+      "non-compliant": null,
       "parent": null
     }
   }

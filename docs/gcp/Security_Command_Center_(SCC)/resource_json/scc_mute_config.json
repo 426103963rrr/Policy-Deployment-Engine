@@ -5,10 +5,10 @@
     "filter": {
       "description": "An expression that defines the filter to apply across create/update events of findings. While creating a filter string, be mindful of the scope in which the mute configuration is being created. E.g., If a filter contains project = X but is created under the project = Y scope, it might not match any findings.",
       "required": true,
-      "security_impact": null,
-      "rationale": null,
-      "compliant": null,
-      "non-compliant": null,
+      "security_impact": "Improper or overly broad filters can hide critical security findings, leading to blind spots.",
+      "rationale": "Filters should be restricted to specific categories that are safe to mute (e.g., OS vulnerabilities already handled elsewhere).",
+      "compliant": "filter = \"category=\\\"OS_VULNERABILITY\\\"\"",
+      "non-compliant": "filter = \"category=\\\"CRYPTOGRAPHY\\\"\"",
       "parent": null
     },
     "mute_config_id": {
@@ -21,7 +21,7 @@
       "parent": null
     },
     "parent": {
-      "description": "Resource name of the new mute configs's parent. Its format is \"organizations/[organization_id]\", \"folders/[folder_id]\", or \"projects/[project_id]\".",
+      "description": "Resource name of the new mute config's parent. Its format is \"organizations/[organization_id]\", \"folders/[folder_id]\", or \"projects/[project_id]\".",
       "required": true,
       "security_impact": null,
       "rationale": null,
@@ -39,7 +39,7 @@
       "parent": null
     },
     "type": {
-      "description": "The type of the mute config, which determines what type of mute state the config affects. Default value is `DYNAMIC`. Possible values are: `MUTE_CONFIG_TYPE_UNSPECIFIED`, `STATIC`, `DYNAMIC`.",
+      "description": "The type of the mute config (STATIC or DYNAMIC) as supported by the SCC API. Note: Terraform provider does not support the `type` argument — mute configs are always created as STATIC by default.",
       "required": false,
       "security_impact": null,
       "rationale": null,
