@@ -1,5 +1,5 @@
 resource "google_database_migration_service_private_connection" "c" {
-    display_name          = "dbms_pc_compliant"
+    display_name          = "c"
     location              = "australia-southeast2"
     private_connection_id = "my-connection"
     project               = "gcp-project-id"

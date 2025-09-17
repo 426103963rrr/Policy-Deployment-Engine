@@ -1,5 +1,5 @@
 resource "google_database_migration_service_migration_job" "nc" {
-    display_name          = "dbms_mj_non_compliant"
+    display_name          = "nc"
     location              = "us-central1"
     migration_job_id  = "compliant-migration"
     project               = "gcp-project-id"

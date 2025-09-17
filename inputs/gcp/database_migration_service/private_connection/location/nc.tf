@@ -1,5 +1,5 @@
 resource "google_database_migration_service_private_connection" "nc" {
-    display_name          = "dbms_pc_non_compliant"
+    display_name          = "nc"
     location              = "us-central1"
     private_connection_id = "my-connection"
     project               = "gcp-project-id"

@@ -1,5 +1,5 @@
 resource "google_database_migration_service_migration_job" "c" {
-    display_name          = "dbms_mj_compliant"
+    display_name          = "c"
     location              = "australia-southeast2"
     migration_job_id  = "compliant-migration"
     project               = "gcp-project-id"
