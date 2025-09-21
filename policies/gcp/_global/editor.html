@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Environment Variable Editor</title>
+  <style>
+    body {
+      font-family: monospace, sans-serif;
+      margin: 2rem;
+      background: #f9f9f9;
+    }
+    h1 {
+      font-size: 1.2rem;
+    }
+    .var-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .var-row input {
+      padding: 6px;
+      font-family: monospace;
+      margin-right: 6px;
+    }
+    .key {
+      width: 220px;
+    }
+    .value {
+      width: 400px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 8px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .remove-btn {
+      background: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    .remove-btn:hover {
+      background: #c9302c;
+    }
+    #addVar {
+      background: #5bc0de;
+      border: none;
+      border-radius: 4px;
+      color: white;
+    }
+    #addVar:hover {
+      background: #31b0d5;
+    }
+    #saveBtn {
+      background: #5cb85c;
+      border: none;
+      border-radius: 4px;
+      color: white;
+    }
+    #saveBtn:hover {
+      background: #449d44;
+    }
+    pre {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #222;
+      color: #eee;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Environment Variables</h1>
+
+  <div id="varList"></div>
+  <button id="addVar">+ Add Variable</button>
+  <br>
+  <button id="saveBtn">💾 Save env.rego</button>
+
+  <pre id="preview"></pre>
+
+  <script>
+    const varList = document.getElementById("varList");
+    const preview = document.getElementById("preview");
+
+    // Default environment variables
+    const defaultVars = {
+      "location": "australia-southeast2",
+      "company_domain": "clientbusiness.com.au",
+      "company_ip_range": ""
+    };
+
+    function createVarRow(key = "", value = "") {
+      const row = document.createElement("div");
+      row.className = "var-row";
+
+      const keyInput = document.createElement("input");
+      keyInput.type = "text";
+      keyInput.value = key;
+      keyInput.placeholder = "key";
+      keyInput.className = "key";
+
+      const valueInput = document.createElement("input");
+      valueInput.type = "text";
+      valueInput.value = value;
+      valueInput.placeholder = "value";
+      valueInput.className = "value";
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "x";
+      removeBtn.className = "remove-btn";
+      removeBtn.onclick = () => {
+        row.remove();
+        updatePreview();
+      };
+
+      row.appendChild(keyInput);
+      row.appendChild(valueInput);
+      row.appendChild(removeBtn);
+
+      keyInput.addEventListener("input", updatePreview);
+      valueInput.addEventListener("input", updatePreview);
+
+      varList.appendChild(row);
+    }
+
+    function buildVars() {
+      const rows = document.querySelectorAll(".var-row");
+      let entries = [];
+      rows.forEach(row => {
+        const key = row.querySelector(".key").value.trim();
+        const value = row.querySelector(".value").value.trim();
+        if (key) entries.push([key, value]);
+      });
+
+      let output = `package terraform.gcp.env\n\n\nvariables := {\n`;
+      entries.forEach(([key, val], i) => {
+        const isLast = i === entries.length - 1;
+        output += `    "${key}": "${val}"${isLast ? "" : ","}\n`;
+      });
+      output += "}";
+      return output;
+    }
+
+    function updatePreview() {
+      preview.textContent = buildVars();
+    }
+
+    function downloadFile() {
+      const content = buildVars();
+      const blob = new Blob([content], {type: "text/plain"});
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "env.rego"; 
+      link.click();
+    }
+
+    Object.entries(defaultVars).forEach(([k, v]) => createVarRow(k, v));
+    document.getElementById("addVar").addEventListener("click", () => {
+      createVarRow();
+      updatePreview();
+    });
+    document.getElementById("saveBtn").addEventListener("click", downloadFile);
+
+    updatePreview();
+  </script>
+</body>
+</html>
